@@ -6,4 +6,6 @@ P.s. I have to note that I'm not that experienced in finding relationships betwe
 I created a Baseline model with 82% using accuracy as metric.
 
 
+Dataset Metadata: https://archive.ics.uci.edu/ml/datasets/heart+disease
+
 __Work in Progress...__
