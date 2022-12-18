@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+    {% if prediction == 1 %}
+        <h1>You are healthy</h1>
+    {% else %}
+        <h1>You are unhealthy</h1>
+    {% endif %}
+
+{% endblock content %}

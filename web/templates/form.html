@@ -1,0 +1,32 @@
+
+{% block content %}
+<form action="" method="post">
+    <h1>Heart Disease Prediction</h1>
+    <small>See help below form to maximize chance of disease</small>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    {{ context['form'].csrf_token }}
+    
+    {% for field in context['form'] if field.widget.input_type != 'hidden' %}
+        <div class="form-row">
+            <label>{{field.label}}:</label>        
+            {{ field }}
+        </div>
+    {% endfor %}
+
+    <div class="help">
+        <ul>
+            <li>Age</li>
+            <li>Cholesterol</li>
+            <li>Max Heart Rate</li>
+            <li>Blood Pressure</li>
+            <li>Depression test</li>
+            <li>Pain type</li>
+            <li>Num. of Vessels</li>
+            <li>Thal</li>
+
+        </ul>
+    </div>
+</form>
+{% endblock content %}

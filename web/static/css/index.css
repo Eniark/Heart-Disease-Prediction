@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100wh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: darksalmon;
+}
+
+form {
+    padding: 5%;
+    height: fit-content;
+    display: flex;
+    border-color: lightblue;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 2% 0 0;
+    /* align-items: start; */
+}
+
+.form-row label {
+    font-size: large;
+}
+
+.form-row input,
+.form-row select
+ {
+    padding: 1.5%;
+}
+
+.form-row input:focus,
+.form-row select:focus
+{
+    outline: none;
+    border: none;
+}
+
+.selection-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+ul {
+    list-style: none;
+}
