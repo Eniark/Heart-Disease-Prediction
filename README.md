@@ -6,7 +6,7 @@ P.s. I have to note that I'm not that experienced in finding relationships betwe
 
 I created a Baseline model with 82% using accuracy as metric.
 
-But using accuracy was not a good thing because my main focus was to reduce the amount of False Negatives, so instead I focused on _recall_ for class #1(has disease). I performed hyperparameter tuning with respect to recall and later plotted the Precision-Recall Curve to find the optimal threshold for class split. Interestingly enough, the optimal value was near the 0.5 -> 0.51. It increased my base recall from __0.88 -> 0.95__ while maintaining intermediate precision and accuracy.  
+But using accuracy was not a good thing because my main focus was to reduce the amount of False Negatives, so instead I focused on _recall_ for class #1(has disease). I performed hyperparameter tuning with respect to recall and later plotted the Precision-Recall Curve to find the optimal threshold for class split. Interestingly enough, the optimal value was near the 0.5 -> 0.46. It increased my base recall from __0.88 -> 0.97__ while maintaining decent precision and accuracy.  
 
 
 Dataset Metadata: https://archive.ics.uci.edu/ml/datasets/heart+disease
