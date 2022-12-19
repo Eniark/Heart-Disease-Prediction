@@ -35,16 +35,18 @@ class UserForm(FlaskForm):
                                     default=0 if DEBUG_STATUS else None)
 
     chest_pain_type = RadioField('Pain Type',
-                       choices=['Typical Angina', 
-                                'Atypical Angina',
-                                'Non-anginal pain',
-                                'Asymptomatic'],
-                       validators=[InputRequired()]) 
+                       choices=[(0, 'Typical Angina'), 
+                                (1, 'Atypical Angina'),
+                                (2, 'Non-anginal pain'),
+                                (3, 'Asymptomatic')],
+                        default=3 if DEBUG_STATUS else None,
+                        validators=[InputRequired()]) 
     number_of_vessels = SelectField('Number of major Vessels',
                                     choices=[(0, NumOfVesselsEnum.no_vessels.value), 
                                             (1,NumOfVesselsEnum.one.value), 
                                             (2,NumOfVesselsEnum.two.value), 
                                             (3,NumOfVesselsEnum.three.value)], 
+                                    default=0 if DEBUG_STATUS else None,
                                     # validators=[NumberRange(min=1, max=4)],
                                     render_kw={"placeholder": "Number of vessels..."})
     
@@ -53,6 +55,7 @@ class UserForm(FlaskForm):
                                 (1,ThalEnum.one.value), 
                                 (2,ThalEnum.two.value), 
                                 (3,ThalEnum.three.value)),
+                        default=0,
                         validators=[InputRequired()], # NumberRange(min=1, max=3) 
                         render_kw={"placeholder": "Thal.."})
 

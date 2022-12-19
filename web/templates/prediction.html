@@ -1,11 +1,24 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    
-    {% if prediction == 1 %}
-        <h1>You are healthy</h1>
-    {% else %}
-        <h1>You are unhealthy</h1>
-    {% endif %}
+
+    <div id="go-back">
+        <a href="{{ url_for('index') }}">Make another prediction</a>
+    </div>
+    <div class="prediction-container">
+        <!-- <div></div> -->
+        <div>
+            <p class="container__title">Prediction {{ prediction }}</p>
+            {% if prediction == 1 %}
+                <h1>You are unhealthy</h1>
+            {% else %}
+                <h1>You are healthy</h1>
+            {% endif %}
+            <small>Scored with probability {{ prediction_probability }}</small>
+        </div>
+        <div>
+            <p>P.s Probability threshold to be considered 'unhealthy': {{ THRESHOLD }}</p>
+        </div>
+    </div>
 
 {% endblock content %}

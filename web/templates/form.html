@@ -1,32 +1,91 @@
+{% extends 'index.html' %}
+
 
 {% block content %}
-<form action="" method="post">
-    <h1>Heart Disease Prediction</h1>
-    <small>See help below form to maximize chance of disease</small>
-    {% for message in get_flashed_messages() %}
-        <div class="alert">{{ message }}</div>
-    {% endfor %}
-    {{ context['form'].csrf_token }}
-    
-    {% for field in context['form'] if field.widget.input_type != 'hidden' %}
-        <div class="form-row">
-            <label>{{field.label}}:</label>        
-            {{ field }}
+<div class="flex-wrapper">
+    <div class="app-title">
+        <h1>Heart Disease Prediction</h1>
+        <small>See help below to maximize chance of disease</small>
+        <div class="help">
+            
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Age</th>
+                    <th>Cholesterol</th>
+                    <th>Max Heart Rate</th>
+                    <th>Blood Pressure</th>
+                </tr>
+                <tr>
+                    <td>Boundaries</td>
+                    <td>1 - 100</td>
+                    <td>100 - 300</td>
+                    <td>70 - 200</td>
+                    <td>80-220</td>
+
+
+                </tr>
+                <tr>
+                    <td>To maximize</td>
+                    <td>40-55</td>
+                    <td>200-225</td>
+                    <td>145-180</td>
+                    <td>120-140</td>
+                    
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <th>Depression test</th>
+                    <th>Pain type</th>
+                    <th>Num. of Vessels</th>
+                    <th>Thal</th>
+                </tr>
+
+                <tr>
+                    <td>Boundaries</td>
+                    <td>0 - 7</td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td>To maximize</td>
+                    <td>0</td>
+                    <td>Non-AP or Asympto.</td>
+                    <td>None</td>
+                    <td>2</td>
+                </tr>
+            </table>
+            <div class="feature-importance-container">
+                <h3>Most important features:
+                </h3>
+            <p><i>(tweaking these might result in more drastic probability changes)</i></p>
+
+                <!-- <small></small> -->
+                <ul>
+                    <li>Max Heart Rate</li>
+                    <li>Depression test</li>
+                    <li>Thal</li>
+                </ul>
+            </div>
         </div>
-    {% endfor %}
-
-    <div class="help">
-        <ul>
-            <li>Age</li>
-            <li>Cholesterol</li>
-            <li>Max Heart Rate</li>
-            <li>Blood Pressure</li>
-            <li>Depression test</li>
-            <li>Pain type</li>
-            <li>Num. of Vessels</li>
-            <li>Thal</li>
-
-        </ul>
     </div>
-</form>
+    <form action="" method="post">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        {{ context['form'].csrf_token }}
+        
+        {% for field in context['form'] if field.widget.input_type != 'hidden' %}
+            <div class="form-row">
+                <label>{{field.label}}:</label>        
+                {{ field }}
+            </div>
+        {% endfor %}
+
+
+    </form>
+</div>
+
 {% endblock content %}
