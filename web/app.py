@@ -1,29 +1,17 @@
-from model import Model
+import os
+
 from config import KEY
-from flask import Flask, render_template, request
-from forms import UserForm
+from flask import Flask
+
+ROOT = os.path.dirname(os.path.realpath(__file__))
+MAXIMIZED_DEFAULTS = True # you can change this to true 
+                                # if you want form to be filled for you in a probability maximization way
+
+from views import entry_page
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = KEY
-
-@app.route('/', methods=('GET', 'POST'))
-def index():
-    form = UserForm(request.form or None)
-    context = {
-        'form' : form
-    }
-
-    if request.method == 'GET':
-        return render_template('form.html', context=context)
-    elif request.method == 'POST':
-        if form.validate():
-            heart_model = Model('pipeline.sav')
-            preprocessed_data = heart_model.preprocess(request.form)
-            prediction_probas = round(heart_model.model.predict_proba([preprocessed_data])[:, 1][0], 3)
-            prediction_adjusted = heart_model.adjust_predictions(prediction_probas)
-        return render_template('prediction.html', prediction=prediction_adjusted, 
-                                                  prediction_probability=prediction_probas,
-                                                  THRESHOLD=Model.THRESHOLD)
+app.register_blueprint(entry_page)
 
 
 if __name__=='__main__':

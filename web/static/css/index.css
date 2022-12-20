@@ -9,6 +9,9 @@ body {
     height: 100vh;
 
 }
+
+
+/* ====HEADER CONTENT==== */
 .flex-wrapper {
     display: flex;
     justify-content: space-between;
@@ -16,7 +19,6 @@ body {
     height: inherit;
 }
 
-/* ====HEADER CONTENT==== */
 .app-title {
     display: flex;
     flex-direction: column;
@@ -59,7 +61,7 @@ tr {
     list-style: square;
 }
 .feature-importance-container ul li {
-    margin: 1.5% 0;
+    margin: 1.5% 0 0 5%;
 }
 /* ====END OF HEADER CONTENT=== */
 
@@ -74,7 +76,6 @@ form {
     background-color: #6f9283;
     justify-content: center;
     align-items: center;
-    /* flex-shrink: 0.75; */
     flex-grow: .75;
 }
 
@@ -138,17 +139,16 @@ ul {
     position: absolute;
     top: 5%;
     left: 5%;  
-    width: 15%;
-    height: 5%;
+    height: fit-content;
+    width: fit-content;
     text-align: center;
     transition: .5s background-color;
 }
 
 #go-back a {
     display: inline-block;
-    vertical-align: middle;
-    /* text-decoration: none; */
-/* color: black;     */
+    margin-top: 2.5%;
+    padding: 5%;
 }
 
 #go-back:hover {
@@ -163,3 +163,66 @@ ul {
 }
 /* =====END OF PREDICTIONS===== */
 
+
+/* ====MEDIA QUERIES==== */
+@media screen and (max-width: 912px){
+    .flex-wrapper {
+        flex-direction: column;
+    }    
+
+    .form-row {
+        margin: 0;
+    }
+
+    form .form-row:nth-child(2) {
+        margin-top: 5%;
+    }
+    form .form-row:last-child {
+        margin-bottom: 5%;
+
+    }
+
+    .app-title h1,
+    .prediction-container div h1 {
+        font-size: 28px;
+    }
+
+    .app-title small {
+        margin-top: 2%;
+        height: 1%;
+    }
+
+    .app-title small,
+    .prediction-container div small {
+        font-size: 16px;
+    }
+
+    .app-title .help th,
+    .app-title .help td,
+    .prediction-container div p {
+        font-size: 16px;
+    }
+    
+    .feature-importance-container h3 {
+        font-size: 16px;
+    }
+    .feature-importance-container p,
+    .feature-importance-container ul {
+        font-size: 14px;
+    }
+    .help table { 
+        border-spacing: 5px;
+    }
+
+
+}
+
+@media screen and (max-width: 550px){
+
+    #go-back a {
+        font-size: 12px;
+    }
+}
+
+
+/* ====END OF MEDIA QUERIES==== */

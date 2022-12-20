@@ -3,12 +3,11 @@
 {% block content %}
 
     <div id="go-back">
-        <a href="{{ url_for('index') }}">Make another prediction</a>
+        <a href="{{ url_for('entry_page.index') }}">Make another prediction</a>
     </div>
     <div class="prediction-container">
-        <!-- <div></div> -->
         <div>
-            <p class="container__title">Prediction {{ prediction }}</p>
+            <p class="container__title">Prediction [{{ prediction }}]</p>
             {% if prediction == 1 %}
                 <h1>You are unhealthy</h1>
             {% else %}
