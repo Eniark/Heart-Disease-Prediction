@@ -3,7 +3,7 @@ from flask import Flask
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = KEY
-MAXIMIZED_DEFAULTS = True # you can change this to true 
+MAXIMIZED_DEFAULTS = False # you can change this to true 
                             # if you want form to be filled for you in a probability maximization way
 
 from views import entry_page
