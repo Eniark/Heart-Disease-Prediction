@@ -13,6 +13,4 @@ COPY . .
 
 RUN chmod +x /scripts/run_app.sh
 
-WORKDIR /myfolder
-
 ENTRYPOINT [ "/scripts/run_app.sh" ]
