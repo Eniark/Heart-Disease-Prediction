@@ -25,8 +25,8 @@ To run this project in __development mode__ you can either:
   4. on first startup use _scripts/run_app.sh_ (next times you may run _app.py_ instead). This will configure your flask app; 
   4. go to directory with _app.py_ and run `python app.py`
 * Use a docker image:
-  1. `docker pull eniark/heart-disease-img:flask-app`
-  2. `docker run -p 5000:5000 -d heart-disease-img`
+  1. `docker pull eniark/heart-disease-image:flask-app`
+  2. `docker run -p 5000:5000 -d eniark/heart-disease-image:flask-app`
 
 ## Summary
 - [x] Created a classifier with stress on recall. Got 97% recall rate;
