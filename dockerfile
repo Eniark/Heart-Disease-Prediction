@@ -1,13 +1,18 @@
-FROM python:3.8-alpine
+FROM python:3.9-slim
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR .
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
 
 COPY . .
 
-RUN apk update
-RUN apk add make automake gcc g++ subversion python3-dev
+RUN chmod +x /scripts/run_app.sh
 
-RUN pip install --upgrade pip setuptools && \
-	pip install -r requirements.txt
+WORKDIR /myfolder
 
-WORKDIR /web
-
-CMD ["python", "app.py"]
+ENTRYPOINT [ "/scripts/run_app.sh" ]

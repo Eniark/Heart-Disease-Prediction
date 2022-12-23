@@ -8,7 +8,9 @@ from wtforms.validators import InputRequired, NumberRange
 from enums import NumOfVesselsEnum, ThalEnum
 from app import MAXIMIZED_DEFAULTS
 
+
 class UserForm(FlaskForm):
+
     Age = IntegerField('Age', 
                         validators=[InputRequired(), NumberRange(min=1, max=100)],
                         render_kw={"placeholder": "Age..."},

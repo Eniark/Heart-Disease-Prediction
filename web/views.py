@@ -1,6 +1,4 @@
 from flask import render_template, request, Blueprint, abort
-from forms import UserForm
-from model import Model
 from jinja2 import TemplateNotFound
 
 entry_page = Blueprint('entry_page', __name__)
@@ -29,3 +27,6 @@ def index():
                                                     THRESHOLD=Model.THRESHOLD)
     except TemplateNotFound:
         abort(404)
+
+from forms import UserForm
+from model import Model
