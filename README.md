@@ -22,9 +22,10 @@ To run this project in __development mode__ you can either:
   1. `git clone https://github.com/Eniark/Heart-Disease-Prediction.git`
   2. go to folder where requirements.txt is located
   3. `pip install -r requirements.txt`
-  4. `python -m flask run`
+  4. on first startup use _scripts/run_app.sh_ (next times you may run _app.py_ instead). This will configure your flask app; 
+  4. go to directory with _app.py_ and run `python app.py`
 * Use a docker image:
-  1. `docker pull eniark/heart-disease-prediction:flask-app`
+  1. `docker pull eniark/heart-disease-img:flask-app`
   2. `docker run -p 5000:5000 -d heart-disease-img`
 
 ## Summary
