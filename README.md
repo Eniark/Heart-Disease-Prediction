@@ -1,6 +1,6 @@
 # Heart Disease Prediction
 
-An end-to-end machine learning project for predicting the presence of heart disease using clinical data. The project covers data exploration, statistical analysis, feature evaluation, model training, hyperparameter tuning, and deployment through a Flask web application.
+An end-to-end machine learning project for predicting the presence of heart disease using clinical data. The project involves data exploration, statistical analysis, feature evaluation, model selection and training, hyperparameter tuning and deployment through a Flask web application.
 
 ## Highlights
 
