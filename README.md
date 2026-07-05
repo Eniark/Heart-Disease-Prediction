@@ -1,36 +1,62 @@
-# Heart-Disease-Prediction
+# Heart Disease Prediction
 
-One of my first end-to-end ML projects. I tried applying some statistical tests like ANOVA, Chi2, Cramer V test, Shapiro-Wilk etc.
+An end-to-end machine learning project for predicting the presence of heart disease using clinical data. The project covers data exploration, statistical analysis, feature evaluation, model training, hyperparameter tuning, and deployment through a Flask web application.
 
-P.s. I have to note that I'm not that experienced in finding relationships between variables and have some questions regarding that. (Oddly enough, Shapiro-Wilk test outputted that most of my features are not normally distributed, but just from looking at the distributions I wouldn't say that __all__ of them are not normally distributed.)
+## Highlights
 
-I created a Baseline model with 82% using accuracy as metric.
+* Performed exploratory data analysis and statistical feature evaluation using:
 
-But using accuracy was not a good thing because my main focus was to reduce the amount of False Negatives, so instead I focused on _recall_ for class #1(has disease). I performed hyperparameter tuning with respect to recall and later plotted the Precision-Recall Curve to find the optimal threshold for class split. Interestingly enough, the optimal value was near the 0.5 -> 0.46. It increased my base recall from __0.88 -> 0.97__ while maintaining decent precision and accuracy.  
+  * ANOVA
+  * Chi-Square Test
+  * Cramer's V
+  * Shapiro-Wilk Test
+* Built a baseline classification model with **82% accuracy**.
+* Optimized the model for **recall** rather than accuracy to reduce false negatives.
+* Performed hyperparameter tuning and decision-threshold optimization using the Precision-Recall curve.
+* Improved recall for the positive (heart disease) class from **0.88 → 0.97** while maintaining good precision and overall performance.
+* Built and deployed a Flask web application for interactive predictions.
+* Containerized the application with Docker.
 
-There were some variables I'm not familiar with (like _Thal_, _ST Depression test_, _Number of vessels_) because of lack of domain knowledge. So it was hard for me to find good causal relationships.
+## Tech Stack
 
-## Screenshots:
-![image](https://user-images.githubusercontent.com/62321153/209288643-3bccf25d-ef61-4e1f-bc03-ca103fec924b.png)
+* Python
+* scikit-learn
+* Pandas
+* NumPy
+* Matplotlib
+* Flask
+* Docker
 
+
+## Screenshots
+![image](https://user-images.githubusercontent.com/62321153/209288643-3bccf25d-ef61-4e1f-bc03-ca103fec924b.png) 
 ![image](https://user-images.githubusercontent.com/62321153/209288681-1b19e441-6107-4b75-bc04-d4c32ffefc6e.png)
 
-## Project evaluation
+## Results
 
-To run this project in __development mode__ you can either:
-* Manually do these steps in a CLI:
-  1. `git clone https://github.com/Eniark/Heart-Disease-Prediction.git`
-  2. go to folder where requirements.txt is located
-  3. `pip install -r requirements.txt`
-  4. on first startup use _scripts/run_app.sh_ (next times you may run _app.py_ instead). This will configure your flask app; 
-  4. go to directory with _app.py_ and run `python app.py`
-* Use a docker image:
-  1. `docker pull eniark/heart-disease-image:flask-app`
-  2. `docker run -p 5000:5000 -d eniark/heart-disease-image:flask-app`
+| Metric                            |   Value |
+| --------------------------------- | ------: |
+| Baseline Accuracy                 |     82% |
+| Optimized Recall (Positive Class) | **97%** |
 
-## Summary
-- [x] Created a classifier with stress on recall. Got 97% recall rate;
-- [x] Created a responsive website for users to interact with the model;
-- [x] Deployed code to github and dockerhub;
+## Dataset
 
-[Dataset Metadata Here](https://archive.ics.uci.edu/ml/datasets/heart+disease)
+The project uses the **UCI Heart Disease Dataset**.
+
+Dataset: [https://archive.ics.uci.edu/ml/datasets/heart+disease](https://archive.ics.uci.edu/ml/datasets/heart+disease)
+
+## Running the Project
+
+```bash
+git clone https://github.com/Eniark/Heart-Disease-Prediction.git
+cd Heart-Disease-Prediction
+pip install -r requirements.txt
+python app.py
+```
+
+Alternatively, run the Docker image:
+
+```bash
+docker pull eniark/heart-disease-image:flask-app
+docker run -p 5000:5000 eniark/heart-disease-image:flask-app
+```
